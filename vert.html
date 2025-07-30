@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Émulateur Neon Army - Call of Duty: Black Ops</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 150, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
+            box-shadow: 0 0 15px #00ff00;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            color: #00ff00;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-top: 5px;
+            color: #00cc00;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 20, 0, 0.3);
+            border: 1px solid #006600;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            margin-bottom: 20px;
+            background-color: black;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(0, 10, 0, 0.5);
+            border: 1px solid #004400;
+        }
+
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #00aa00;
+            padding-bottom: 5px;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #002200;
+            color: #00ff00;
+            border: 1px solid #00aa00;
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+
+        button:hover {
+            background-color: #00aa00;
+            color: black;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .status {
+            padding: 10px;
+            background-color: rgba(0, 30, 0, 0.5);
+            border-left: 3px solid #00ff00;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .neon-text {
+            animation: flicker 1.5s infinite alternate;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-top: 1px solid #00aa00;
+            font-size: 0.8em;
+            color: #009900;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="neon-text">NEON ARMY EMULATOR</h1>
+        <div class="tagline pulse">Call of Duty: Black Ops - France Version</div>
+    </div>
+
+    <div class="container">
+        <div class="game-frame">
+            <iframe src="https://www.retrogames.cc/embed/43636-call-of-duty-black-ops-france.html" width="100%" height="100%" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <h2>CONTROLS</h2>
+                <button>Z-Q-S-D</button>
+                <button>SPACE (Jump)</button>
+                <button>MOUSE (Aim)</button>
+                <button>LEFT CLICK (Fire)</button>
+                <button>R (Reload)</button>
+            </div>
+
+            <div class="control-group">
+                <h2>ACTIONS</h2>
+                <button>START MISSION</button>
+                <button>PAUSE GAME</button>
+                <button>SAVE STATE</button>
+                <button>LOAD STATE</button>
+                <button>FULLSCREEN</button>
+            </div>
+
+            <div class="control-group">
+                <h2>SETTINGS</h2>
+                <button>GRAPHICS</button>
+                <button>AUDIO</button>
+                <button>CONTROLS</button>
+                <button>CHEAT CODES</button>
+                <button>RESET GAME</button>
+            </div>
+        </div>
+
+        <div class="status">
+            <strong>STATUS:</strong> Game loaded successfully | FPS: 60 | Memory: 256MB | Render: WebGL
+        </div>
+
+        <div class="status">
+            <strong>TIP:</strong> Use headphones for best experience. The game saves automatically between missions.
+        </div>
+    </div>
+
+    <footer>
+        NEON ARMY EMULATOR v2.3.5 | This emulator is for educational purposes only | Call of Duty is a registered trademark of Activision
+    </footer>
+</body>
+</html>
